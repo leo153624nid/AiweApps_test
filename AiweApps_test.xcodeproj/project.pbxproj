@@ -14,6 +14,7 @@
 		FAC6954329AF942A0065FE03 /* AiweApps_test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC6954129AF942A0065FE03 /* AiweApps_test.xcdatamodeld */; };
 		FAC6954529AF942D0065FE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC6954429AF942D0065FE03 /* Assets.xcassets */; };
 		FAC6954829AF942D0065FE03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC6954629AF942D0065FE03 /* LaunchScreen.storyboard */; };
+		FAC6955129AF96010065FE03 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6955029AF96010065FE03 /* APICaller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FAC6954429AF942D0065FE03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC6954729AF942D0065FE03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAC6954929AF942D0065FE03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAC6955029AF96010065FE03 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				FAC6954629AF942D0065FE03 /* LaunchScreen.storyboard */,
 				FAC6954929AF942D0065FE03 /* Info.plist */,
 				FAC6954129AF942A0065FE03 /* AiweApps_test.xcdatamodeld */,
+				FAC6955029AF96010065FE03 /* APICaller.swift */,
 			);
 			path = AiweApps_test;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				FAC6953D29AF942A0065FE03 /* ViewController.swift in Sources */,
 				FAC6953929AF942A0065FE03 /* AppDelegate.swift in Sources */,
 				FAC6953B29AF942A0065FE03 /* SceneDelegate.swift in Sources */,
+				FAC6955129AF96010065FE03 /* APICaller.swift in Sources */,
 				FAC6954329AF942A0065FE03 /* AiweApps_test.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
