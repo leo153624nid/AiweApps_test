@@ -66,10 +66,10 @@
 		FAC6953729AF942A0065FE03 /* AiweApps_test */ = {
 			isa = PBXGroup;
 			children = (
+				FAC6955729AFA2040065FE03 /* App */,
 				FAC6955529AFA1DF0065FE03 /* APICaller */,
 				FAC6955429AFA1CB0065FE03 /* Models */,
 				FAC6955329AFA1B40065FE03 /* Protocols */,
-				FAC6955729AFA2040065FE03 /* App */,
 				FAC6956329AFA3710065FE03 /* ViewControllers */,
 				FAC6953E29AF942A0065FE03 /* Main.storyboard */,
 				FAC6954429AF942D0065FE03 /* Assets.xcassets */,
