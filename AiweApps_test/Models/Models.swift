@@ -32,3 +32,8 @@ struct Data: Codable {
 struct CoinPersentage: Codable {
     let btc: Double
 }
+
+extension Notification.Name {
+    static let notificationFromParseButton = Notification.Name("notificationFromParseButton")
+    static let notificationFromShowButton = Notification.Name("notificationFromShowButton")
+}
