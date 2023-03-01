@@ -16,11 +16,22 @@ class ViewController: UIViewController {
     }
     
     init(with apiCaller: APICallerProtocol) {
-        
+        self.apiCaller = apiCaller
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.apiCaller = APICaller.shared
+        super.init(coder: coder)
+    }
+    
+    private func getData() {
+        apiCaller.getData { result in
+            switch result {
+                case .success(let data): print(data.marketCapPercentage.btc)
+                case .failure(let error): print(error.localizedDescription)
+            }
+        }
     }
     
 
