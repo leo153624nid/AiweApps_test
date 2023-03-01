@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getData()
     }
     
     init(with apiCaller: APICallerProtocol) {
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
     
     private func getData() {
-        apiCaller.getData { result in
+        apiCaller.fetchData { result in
             switch result {
                 case .success(let data): print(data.marketCapPercentage.btc)
                 case .failure(let error): print(error.localizedDescription)

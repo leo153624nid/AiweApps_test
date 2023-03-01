@@ -10,7 +10,7 @@ import Foundation
 protocol APICallerProtocol {
     var constants: ConstantsProtocol { get }
     
-    func getData(completion: @escaping (Result<Data, Error>) -> Void)
+    func fetchData(completion: @escaping (Result<Data, Error>) -> Void)
 }
 
 protocol ConstantsProtocol {
@@ -31,7 +31,7 @@ final class APICaller: APICallerProtocol {
     
     private init() {}
     
-    public func getData(completion: @escaping (Result<Data, Error>) -> Void) {
+    public func fetchData(completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = constants.dataURL else { fatalError("bad url") }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -64,6 +64,15 @@ struct Data: Codable {
     let endedIcos: Int
     let markets: Int
     let marketCapPercentage: CoinPersentage
+    
+    enum CodingKeys: String, CodingKey {
+        case activeCryptocurrencies = "active_cryptocurrencies"
+        case upcomingIcos = "upcoming_icos"
+        case ongoingIcos = "ongoing_icos"
+        case endedIcos = "ended_icos"
+        case markets
+        case marketCapPercentage = "market_cap_percentage"
+    }
 }
 
 struct CoinPersentage: Codable {
