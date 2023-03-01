@@ -15,6 +15,9 @@
 		FAC6954529AF942D0065FE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC6954429AF942D0065FE03 /* Assets.xcassets */; };
 		FAC6954829AF942D0065FE03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC6954629AF942D0065FE03 /* LaunchScreen.storyboard */; };
 		FAC6955129AF96010065FE03 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6955029AF96010065FE03 /* APICaller.swift */; };
+		FAC6955A29AFA2620065FE03 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6955929AFA2620065FE03 /* Models.swift */; };
+		FAC6955E29AFA2B70065FE03 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6955D29AFA2B70065FE03 /* Protocols.swift */; };
+		FAC6956129AFA2F30065FE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956029AFA2F30065FE03 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		FAC6954729AF942D0065FE03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAC6954929AF942D0065FE03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC6955029AF96010065FE03 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		FAC6955929AFA2620065FE03 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FAC6955D29AFA2B70065FE03 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		FAC6956029AFA2F30065FE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +66,60 @@
 		FAC6953729AF942A0065FE03 /* AiweApps_test */ = {
 			isa = PBXGroup;
 			children = (
-				FAC6953829AF942A0065FE03 /* AppDelegate.swift */,
-				FAC6953A29AF942A0065FE03 /* SceneDelegate.swift */,
-				FAC6953C29AF942A0065FE03 /* ViewController.swift */,
+				FAC6955529AFA1DF0065FE03 /* APICaller */,
+				FAC6955429AFA1CB0065FE03 /* Models */,
+				FAC6955329AFA1B40065FE03 /* Protocols */,
+				FAC6955729AFA2040065FE03 /* App */,
+				FAC6956329AFA3710065FE03 /* ViewControllers */,
 				FAC6953E29AF942A0065FE03 /* Main.storyboard */,
 				FAC6954429AF942D0065FE03 /* Assets.xcassets */,
-				FAC6954629AF942D0065FE03 /* LaunchScreen.storyboard */,
 				FAC6954929AF942D0065FE03 /* Info.plist */,
 				FAC6954129AF942A0065FE03 /* AiweApps_test.xcdatamodeld */,
-				FAC6955029AF96010065FE03 /* APICaller.swift */,
 			);
 			path = AiweApps_test;
+			sourceTree = "<group>";
+		};
+		FAC6955329AFA1B40065FE03 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FAC6955D29AFA2B70065FE03 /* Protocols.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		FAC6955429AFA1CB0065FE03 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAC6955929AFA2620065FE03 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FAC6955529AFA1DF0065FE03 /* APICaller */ = {
+			isa = PBXGroup;
+			children = (
+				FAC6955029AF96010065FE03 /* APICaller.swift */,
+				FAC6956029AFA2F30065FE03 /* Constants.swift */,
+			);
+			path = APICaller;
+			sourceTree = "<group>";
+		};
+		FAC6955729AFA2040065FE03 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FAC6954629AF942D0065FE03 /* LaunchScreen.storyboard */,
+				FAC6953829AF942A0065FE03 /* AppDelegate.swift */,
+				FAC6953A29AF942A0065FE03 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FAC6956329AFA3710065FE03 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAC6953C29AF942A0065FE03 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +194,12 @@
 			files = (
 				FAC6953D29AF942A0065FE03 /* ViewController.swift in Sources */,
 				FAC6953929AF942A0065FE03 /* AppDelegate.swift in Sources */,
+				FAC6955E29AFA2B70065FE03 /* Protocols.swift in Sources */,
 				FAC6953B29AF942A0065FE03 /* SceneDelegate.swift in Sources */,
+				FAC6955A29AFA2620065FE03 /* Models.swift in Sources */,
 				FAC6955129AF96010065FE03 /* APICaller.swift in Sources */,
 				FAC6954329AF942A0065FE03 /* AiweApps_test.xcdatamodeld in Sources */,
+				FAC6956129AFA2F30065FE03 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
