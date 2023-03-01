@@ -10,13 +10,13 @@ import UIKit
 class ViewController: UIViewController {
     private var apiCaller: APICallerProtocol
     
-    private let nameCoinLabel: UILabel = {
+    private let nameCoinLabel: UILabel = { // todo
         let label = UILabel()
         
         return label
     }()
     
-    private let persentageCoinLabel: UILabel = {
+    private let persentageCoinLabel: UILabel = { // todo
         let label = UILabel()
         
         return label
@@ -28,12 +28,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(parseButton)
+        view.addSubview(nameCoinLabel)
+        view.addSubview(persentageCoinLabel)
         view.addSubview(showButton)
         
         setupView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(parseAction), name: .notificationFromParseButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showAction), name: .notificationFromShowButton, object: nil)
+        
         getData() // todo
     }
     
@@ -80,13 +83,7 @@ class ViewController: UIViewController {
     
     @objc func showAction(notification: Notification) {
         if notification.name == Notification.Name.notificationFromShowButton {
-//            let alertController = UIAlertController(title: "Поздравляем!", message: "Ваша заявка успешно отправлена!", preferredStyle: .alert)
-//            let action = UIAlertAction(title: "Закрыть", style: .default, handler: { action in
-//                print("action")
-//            })
-//
-//            alertController.addAction(action)
-//            self.present(alertController, animated: true, completion: nil)
+
         }
     }
     
