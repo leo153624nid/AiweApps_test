@@ -10,7 +10,7 @@ import Foundation
 protocol APICallerProtocol {
     var constants: ConstantsProtocol { get }
     
-    func getData(completion: @escaping (Result<[Article ], Error>) -> Void)
+    func getData(completion: @escaping (Result<Data, Error>) -> Void)
 }
 
 protocol ConstantsProtocol {
@@ -31,7 +31,7 @@ final class APICaller: APICallerProtocol {
     
     private init() {}
     
-    public func getData(completion: @escaping (Result<[Article], Error>) -> Void) {
+    public func getData(completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = constants.dataURL else { fatalError("bad url") }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -42,7 +42,7 @@ final class APICaller: APICallerProtocol {
                 do {
                     let result = try JSONDecoder().decode(APIResponse.self, from: data)
                     
-                    completion(.success(result.articles))
+                    completion(.success(result.data))
                 } catch {
                     completion(.failure(error))
                 }
@@ -54,18 +54,18 @@ final class APICaller: APICallerProtocol {
 
 // Models
 struct APIResponse: Codable {
-    let articles: [Article]
+    let data: Data
 }
 
-struct Article: Codable {
-    let source: Source
-    let title: String
-    let description: String?
-    let url: String?
-    let urlToImage: String?
-    let publishedAt: String
+struct Data: Codable {
+    let activeCryptocurrencies: Int
+    let upcomingIcos: Int
+    let ongoingIcos: Int
+    let endedIcos: Int
+    let markets: Int
+    let marketCapPercentage: CoinPersentage
 }
 
-struct Source: Codable {
-    let name: String
+struct CoinPersentage: Codable {
+    let btc: Double
 }
