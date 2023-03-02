@@ -12,9 +12,7 @@ class CoinPersentageTableView: UITableView {
     init() {
         super.init(frame: .zero, style: .plain)
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .lightGray
-        self.layer.cornerRadius = 12
-    
+
     }
     
     required init?(coder: NSCoder) {
