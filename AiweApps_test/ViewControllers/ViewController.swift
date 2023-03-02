@@ -10,17 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     private var apiCaller: APICallerProtocol
     
-    private let nameCoinLabel: UILabel = { // todo
-        let label = UILabel()
-        
-        return label
-    }()
-    
-    private let persentageCoinLabel: UILabel = { // todo
-        let label = UILabel()
-        
-        return label
-    }()
+    private let nameCoinLabel = OutLabel(text: "coin:")
+    private let persentageCoinLabel = OutLabel(text: "persentage")
     
     private let parseButton = PrimaryButton(title: "Parse")
     private let showButton = PrimaryButton(title: "Show")
@@ -61,12 +52,22 @@ class ViewController: UIViewController {
     
     private func setupView() {
         // setup parseButton
-        parseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        parseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive = true
         parseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         parseButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         parseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
+        // setup nameCoinLabel
+        nameCoinLabel.topAnchor.constraint(equalTo: parseButton.bottomAnchor, constant: 20).isActive = true
+        nameCoinLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        nameCoinLabel.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        nameCoinLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -70).isActive = true
         
+        // setup persentageCoinLabel
+        persentageCoinLabel.topAnchor.constraint(equalTo: nameCoinLabel.topAnchor).isActive = true
+        persentageCoinLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        persentageCoinLabel.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        persentageCoinLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 70).isActive = true
     }
     
     @objc func parseAction(notification: Notification) {
