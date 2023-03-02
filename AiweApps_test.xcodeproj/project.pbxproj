@@ -20,6 +20,8 @@
 		FAC6956129AFA2F30065FE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956029AFA2F30065FE03 /* Constants.swift */; };
 		FAC6956829AFAA880065FE03 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956729AFAA880065FE03 /* PrimaryButton.swift */; };
 		FAC6956D29B073EF0065FE03 /* OutLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956C29B073EF0065FE03 /* OutLabel.swift */; };
+		FAC6957029B08E0D0065FE03 /* CoinPersentageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956F29B08E0D0065FE03 /* CoinPersentageTableView.swift */; };
+		FAC6957529B096190065FE03 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6957429B096190065FE03 /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		FAC6956029AFA2F30065FE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAC6956729AFAA880065FE03 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		FAC6956C29B073EF0065FE03 /* OutLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutLabel.swift; sourceTree = "<group>"; };
+		FAC6956F29B08E0D0065FE03 /* CoinPersentageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinPersentageTableView.swift; sourceTree = "<group>"; };
+		FAC6957429B096190065FE03 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		FAC6953729AF942A0065FE03 /* AiweApps_test */ = {
 			isa = PBXGroup;
 			children = (
+				FAC6957229B095D00065FE03 /* Views */,
 				FAC6956629AFAA580065FE03 /* Components */,
 				FAC6955729AFA2040065FE03 /* App */,
 				FAC6955529AFA1DF0065FE03 /* APICaller */,
@@ -134,6 +139,15 @@
 				FAC6956C29B073EF0065FE03 /* OutLabel.swift */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		FAC6957229B095D00065FE03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAC6956F29B08E0D0065FE03 /* CoinPersentageTableView.swift */,
+				FAC6957429B096190065FE03 /* InfoView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +224,8 @@
 				FAC6953929AF942A0065FE03 /* AppDelegate.swift in Sources */,
 				FAC6955E29AFA2B70065FE03 /* Protocols.swift in Sources */,
 				FAC6956D29B073EF0065FE03 /* OutLabel.swift in Sources */,
+				FAC6957529B096190065FE03 /* InfoView.swift in Sources */,
+				FAC6957029B08E0D0065FE03 /* CoinPersentageTableView.swift in Sources */,
 				FAC6953B29AF942A0065FE03 /* SceneDelegate.swift in Sources */,
 				FAC6955A29AFA2620065FE03 /* Models.swift in Sources */,
 				FAC6955129AF96010065FE03 /* APICaller.swift in Sources */,
