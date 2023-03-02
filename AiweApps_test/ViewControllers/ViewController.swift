@@ -72,14 +72,14 @@ class ViewController: UIViewController {
     }
     
     private func getAndWriteData() {
-        apiCaller.fetchData { result in
+        apiCaller.fetchData { [weak self] result in
             switch result {
                 case .success(let data):
                     print(data.marketCapPercentage.btc) // todo
                     DispatchQueue.main.async {
                         sleep(1)
-                        self.parseButton.setTitle(ButtonNames.parse.rawValue, for: .normal)
-                        self.parseButton.buttonIsOn = false
+                        self?.parseButton.setTitle(ButtonNames.parse.rawValue, for: .normal)
+                        self?.parseButton.buttonIsOn = false
                     }
                 case .failure(let error): print(error.localizedDescription)
             }
