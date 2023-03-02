@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     }
     
     private func readData() {
-        
+        // todo
     }
     
     @objc func parseAction(notification: Notification) {
@@ -103,5 +103,23 @@ class ViewController: UIViewController {
             readData()
         }
     }
+}
+
+extension ViewController: UITableViewDelegate {
+    
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        return cell
+    }
+    
+    
 }
 
