@@ -8,16 +8,18 @@
 import Foundation
 
 struct APIResponse: Codable {
-    let data: Data
+    let data: DataClass
 }
 
-struct Data: Codable {
+struct DataClass: Codable {
     let activeCryptocurrencies: Int
     let upcomingIcos: Int
     let ongoingIcos: Int
     let endedIcos: Int
     let markets: Int
-    let marketCapPercentage: CoinPersentage
+    let totalMarketCap, totalVolume, marketCapPercentage: [String: Double]
+        let marketCapChangePercentage24HUsd: Double
+        let updatedAt: Int
     
     enum CodingKeys: String, CodingKey {
         case activeCryptocurrencies = "active_cryptocurrencies"
@@ -25,21 +27,22 @@ struct Data: Codable {
         case ongoingIcos = "ongoing_icos"
         case endedIcos = "ended_icos"
         case markets
+        case totalMarketCap = "total_market_cap"
+        case totalVolume = "total_volume"
         case marketCapPercentage = "market_cap_percentage"
+        case marketCapChangePercentage24HUsd = "market_cap_change_percentage_24h_usd"
+        case updatedAt = "updated_at"
     }
 }
 
-struct CoinPersentage: Codable {
-    let btc: Double
-    let eth: Double
-    let usdt: Double
-    let bnb: Double
-    let usdc: Double
-    let xrp: Double
-    let ada: Double
-    let okb: Double
-    let doge: Double
-    let matic: Double
+struct CoinPersentageTableViewCellViewModel {
+    var coinName: String
+    var coinPersentage: Double
+    
+    init(name: String, persentage: Double) {
+        self.coinName = name
+        self.coinPersentage = persentage
+    }
 }
 
 extension Notification.Name {
