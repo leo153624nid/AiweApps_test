@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Foundation
 
 class ViewController: UIViewController {
     private var apiCaller: APICallerProtocol
@@ -139,6 +140,7 @@ class ViewController: UIViewController {
                 self.showButton.setTitle(ButtonNames.show.rawValue, for: .normal)
                 self.showButton.buttonIsOn = false
                 self.tableView.reloadData()
+                self.showAltCoinsMarketCap()
             }
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -178,7 +180,12 @@ class ViewController: UIViewController {
     
     // Бонус - подсчет обьема AltCoins
     private func showAltCoinsMarketCap() {
-        
+        let sum = dataArray.count != 0 ? dataArray
+            .filter ({ $0.coinName != "btc" })
+            .reduce(0, {
+                $0 + $1.coinPersentage
+            }) : 0
+        self.infoView.persentageCoinLabel.text = "\(round(sum * 100) / 100) %"
     }
 }
 
