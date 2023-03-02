@@ -8,8 +8,6 @@
 import UIKit
 
 class OutLabel: UILabel {
-   
-    
     init(text: String) {
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
