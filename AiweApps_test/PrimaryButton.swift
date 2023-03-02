@@ -14,7 +14,6 @@ class PrimaryButton: UIButton {
             self.setTitleColor(buttonIsOn ? UIColor.white : UIColor.black, for: .normal)
         }
     }
-    
     private var buttonName: String
     
     init(title: String) {
