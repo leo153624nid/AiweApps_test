@@ -22,6 +22,7 @@
 		FAC6956D29B073EF0065FE03 /* OutLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956C29B073EF0065FE03 /* OutLabel.swift */; };
 		FAC6957029B08E0D0065FE03 /* CoinPersentageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956F29B08E0D0065FE03 /* CoinPersentageTableView.swift */; };
 		FAC6957529B096190065FE03 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6957429B096190065FE03 /* InfoView.swift */; };
+		FAC6957C29B09EDF0065FE03 /* CoinPersentageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6957B29B09EDF0065FE03 /* CoinPersentageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FAC6956C29B073EF0065FE03 /* OutLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutLabel.swift; sourceTree = "<group>"; };
 		FAC6956F29B08E0D0065FE03 /* CoinPersentageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinPersentageTableView.swift; sourceTree = "<group>"; };
 		FAC6957429B096190065FE03 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		FAC6957B29B09EDF0065FE03 /* CoinPersentageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinPersentageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				FAC6956F29B08E0D0065FE03 /* CoinPersentageTableView.swift */,
 				FAC6957429B096190065FE03 /* InfoView.swift */,
+				FAC6957B29B09EDF0065FE03 /* CoinPersentageTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				FAC6956D29B073EF0065FE03 /* OutLabel.swift in Sources */,
 				FAC6957529B096190065FE03 /* InfoView.swift in Sources */,
 				FAC6957029B08E0D0065FE03 /* CoinPersentageTableView.swift in Sources */,
+				FAC6957C29B09EDF0065FE03 /* CoinPersentageTableViewCell.swift in Sources */,
 				FAC6953B29AF942A0065FE03 /* SceneDelegate.swift in Sources */,
 				FAC6955A29AFA2620065FE03 /* Models.swift in Sources */,
 				FAC6955129AF96010065FE03 /* APICaller.swift in Sources */,
