@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import CoreData
+import CoreData
 
 class ViewController: UIViewController {
     private var apiCaller: APICallerProtocol
@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     private let parseButton = PrimaryButton(title: ButtonNames.parse.rawValue)
     private let showButton = PrimaryButton(title: ButtonNames.show.rawValue)
     
-//    private var dataArray = [MarketCapPercentage]()
-    private var dataArray = [CoinPersentageTableViewCellViewModel]()
+    private var dataArray = [MarketCapPercentage]()
+//    private var dataArray = [CoinPersentageTableViewCellViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,15 +84,15 @@ class ViewController: UIViewController {
             switch result {
                 case .success(let data):
                     self?.dataArray.removeAll()
-                    for (key, value) in data.marketCapPercentage {
-                        self?.saveItem(key: key, value: value)
-                    }
-                    print(self?.dataArray.count as Any)
+
                     DispatchQueue.main.async {
+                        self?.clearStore()
+                        for (key, value) in data.marketCapPercentage {
+                            self?.saveItem(key: key, value: value)
+                        }
                         sleep(1)
                         self?.parseButton.setTitle(ButtonNames.parse.rawValue, for: .normal)
                         self?.parseButton.buttonIsOn = false
-                        self?.tableView.reloadData()
                     }
                 case .failure(let error): print(error.localizedDescription)
             }
@@ -100,11 +100,57 @@ class ViewController: UIViewController {
     }
     
     private func saveItem(key: String, value: Double) {
-        self.dataArray.append(CoinPersentageTableViewCellViewModel(name: key, persentage: value))
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "MarketCapPercentage",
+                                                      in: context) else { return }
+        let coinObject = MarketCapPercentage(entity: entity,
+                                             insertInto: context)
+        coinObject.coinName = key
+        coinObject.coinPersentage = value
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
     private func readData() {
-        // todo
+        dataArray.removeAll()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<MarketCapPercentage> = MarketCapPercentage.fetchRequest()
+        
+        do {
+            dataArray = try context.fetch(fetchRequest)
+
+            DispatchQueue.main.async {
+                self.showButton.setTitle(ButtonNames.show.rawValue, for: .normal)
+                self.showButton.buttonIsOn = false
+                self.tableView.reloadData()
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func clearStore() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<MarketCapPercentage> = MarketCapPercentage.fetchRequest()
+//        let executeReq: NSPersistentStoreRequest<MarketCapPercentage> = MarketCapPercentage.
+        
+        do {
+            try context.execute(NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>))
+//            try context.executeRequest(NSBatchDeleteRequest(fetchRequest: fetchRequest))
+//            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
     
     @objc func parseAction(notification: Notification) {

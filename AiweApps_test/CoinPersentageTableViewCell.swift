@@ -42,7 +42,7 @@ class CoinPersentageTableViewCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func configure(with viewModel: CoinPersentageTableViewCellViewModel) {
+    func configure(with viewModel: MarketCapPercentage) {
         coinName.text = viewModel.coinName
         coinPersentage.text = String(viewModel.coinPersentage)
     }
