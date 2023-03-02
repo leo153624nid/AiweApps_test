@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
     private var apiCaller: APICallerProtocol
     
@@ -16,7 +17,7 @@ class ViewController: UIViewController {
     private let parseButton = PrimaryButton(title: ButtonNames.parse.rawValue)
     private let showButton = PrimaryButton(title: ButtonNames.show.rawValue)
     
-    private var dataArray = [CoinPersentageTableViewCellViewModel]()
+    private var dataArray = [MarketCapPercentage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,10 +128,9 @@ extension ViewController: UITableViewDataSource {
             withIdentifier: CoinPersentageTableViewCell.identifier,
             for: indexPath
         ) as? CoinPersentageTableViewCell else { fatalError() }
+        
         cell.configure(with: dataArray[indexPath.row])
         return cell
-    }
-    
-    
+    } 
 }
 
