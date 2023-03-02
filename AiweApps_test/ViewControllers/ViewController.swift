@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//import CoreData
 
 class ViewController: UIViewController {
     private var apiCaller: APICallerProtocol
@@ -17,7 +17,8 @@ class ViewController: UIViewController {
     private let parseButton = PrimaryButton(title: ButtonNames.parse.rawValue)
     private let showButton = PrimaryButton(title: ButtonNames.show.rawValue)
     
-    private var dataArray = [MarketCapPercentage]()
+//    private var dataArray = [MarketCapPercentage]()
+    private var dataArray = [CoinPersentageTableViewCellViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,15 +83,23 @@ class ViewController: UIViewController {
         apiCaller.fetchData { [weak self] result in
             switch result {
                 case .success(let data):
-                    print(data.marketCapPercentage["btc"]!) // todo
+                    for (key, value) in data.marketCapPercentage {
+                        self?.saveItem(key: key, value: value)
+                    }
+                    print(self?.dataArray.count as Any)
                     DispatchQueue.main.async {
                         sleep(1)
                         self?.parseButton.setTitle(ButtonNames.parse.rawValue, for: .normal)
                         self?.parseButton.buttonIsOn = false
+                        self?.tableView.reloadData()
                     }
                 case .failure(let error): print(error.localizedDescription)
             }
         }
+    }
+    
+    private func saveItem(key: String, value: Double) {
+        self.dataArray.append(CoinPersentageTableViewCellViewModel(name: key, persentage: value))
     }
     
     private func readData() {
@@ -100,7 +109,7 @@ class ViewController: UIViewController {
     @objc func parseAction(notification: Notification) {
         if notification.name == Notification.Name.notificationFromParseButton {
             self.parseButton.setTitle(ButtonNames.fetching.rawValue, for: .normal)
-//            getAndWriteData()
+            getAndWriteData()
         }
     }
     
@@ -131,6 +140,10 @@ extension ViewController: UITableViewDataSource {
         
         cell.configure(with: dataArray[indexPath.row])
         return cell
-    } 
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
 }
 
