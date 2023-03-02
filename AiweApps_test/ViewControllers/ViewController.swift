@@ -15,9 +15,15 @@ class ViewController: UIViewController {
 
     private let parseButton = PrimaryButton(title: ButtonNames.parse.rawValue)
     private let showButton = PrimaryButton(title: ButtonNames.show.rawValue)
+    
+    private var dataArray = [CoinPersentageTableViewCellViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(CoinPersentageTableViewCell.self, forCellReuseIdentifier: CoinPersentageTableViewCell.identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         view.addSubview(parseButton)
         view.addSubview(tableView)
         view.addSubview(infoView)
@@ -75,7 +81,7 @@ class ViewController: UIViewController {
         apiCaller.fetchData { [weak self] result in
             switch result {
                 case .success(let data):
-                    print(data.marketCapPercentage.btc) // todo
+                    print(data.marketCapPercentage["btc"]!) // todo
                     DispatchQueue.main.async {
                         sleep(1)
                         self?.parseButton.setTitle(ButtonNames.parse.rawValue, for: .normal)
@@ -106,17 +112,22 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CoinPersentageTableViewCell.identifier,
+            for: indexPath
+        ) as? CoinPersentageTableViewCell else { fatalError() }
+        cell.configure(with: dataArray[indexPath.row])
         return cell
     }
     
