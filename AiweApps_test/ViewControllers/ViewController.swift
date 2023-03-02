@@ -83,6 +83,7 @@ class ViewController: UIViewController {
         apiCaller.fetchData { [weak self] result in
             switch result {
                 case .success(let data):
+                    self?.dataArray.removeAll()
                     for (key, value) in data.marketCapPercentage {
                         self?.saveItem(key: key, value: value)
                     }
@@ -143,7 +144,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 40
     }
 }
 
