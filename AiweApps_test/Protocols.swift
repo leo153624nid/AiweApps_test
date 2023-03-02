@@ -10,7 +10,7 @@ import Foundation
 protocol APICallerProtocol {
     var constants: ConstantsProtocol { get }
     
-    func fetchData(completion: @escaping (Result<Data, Error>) -> Void)
+    func fetchData(completion: @escaping (Result<DataClass, Error>) -> Void)
 }
 
 protocol ConstantsProtocol {
