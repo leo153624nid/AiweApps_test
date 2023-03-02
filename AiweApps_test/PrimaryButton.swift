@@ -8,7 +8,7 @@
 import UIKit
 
 class PrimaryButton: UIButton {
-    var buttonIsOn = false {
+    var buttonIsOn = false { // todo
         didSet {
             self.backgroundColor = buttonIsOn ? UIColor.black : UIColor.lightGray
             self.setTitleColor(buttonIsOn ? UIColor.lightGray : UIColor.black, for: .normal)
