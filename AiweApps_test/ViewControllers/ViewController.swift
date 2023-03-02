@@ -53,12 +53,12 @@ class ViewController: UIViewController {
     private func setupView() {
         // setup parseButton
         parseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 140).isActive = true
-        parseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        parseButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        parseButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        parseButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
         parseButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         // setup nameCoinLabel
-        nameCoinLabel.topAnchor.constraint(equalTo: parseButton.bottomAnchor, constant: 20).isActive = true
+        nameCoinLabel.topAnchor.constraint(equalTo: parseButton.bottomAnchor, constant: 30).isActive = true
         nameCoinLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         nameCoinLabel.widthAnchor.constraint(equalToConstant: 130).isActive = true
         nameCoinLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -70).isActive = true
@@ -68,6 +68,12 @@ class ViewController: UIViewController {
         persentageCoinLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         persentageCoinLabel.widthAnchor.constraint(equalToConstant: 130).isActive = true
         persentageCoinLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 70).isActive = true
+        
+        // setup showButton
+        showButton.topAnchor.constraint(equalTo: nameCoinLabel.bottomAnchor, constant: 30).isActive = true
+        showButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        showButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        showButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     @objc func parseAction(notification: Notification) {
