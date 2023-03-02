@@ -25,8 +25,14 @@ class ViewController: UIViewController {
         
         setupView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(parseAction), name: .notificationFromParseButton, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showAction), name: .notificationFromShowButton, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(parseAction),
+                                               name: .notificationFromParseButton,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showAction),
+                                               name: .notificationFromShowButton,
+                                               object: nil)
     }
     
     init(with apiCaller: APICallerProtocol) {
@@ -75,10 +81,13 @@ class ViewController: UIViewController {
                         self.parseButton.setTitle(ButtonNames.parse.rawValue, for: .normal)
                         self.parseButton.buttonIsOn = false
                     }
-                    
                 case .failure(let error): print(error.localizedDescription)
             }
         }
+    }
+    
+    private func readData() {
+        
     }
     
     @objc func parseAction(notification: Notification) {
@@ -91,9 +100,8 @@ class ViewController: UIViewController {
     @objc func showAction(notification: Notification) {
         if notification.name == Notification.Name.notificationFromShowButton {
             self.showButton.setTitle(ButtonNames.reading.rawValue, for: .normal)
+            readData()
         }
     }
-    
-
 }
 
