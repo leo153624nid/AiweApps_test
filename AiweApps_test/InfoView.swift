@@ -8,8 +8,8 @@
 import UIKit
 
 class InfoView: UIView {
-    private var nameCoinLabel : OutLabel
-    private var persentageCoinLabel = OutLabel(text: "persentage")
+    var nameCoinLabel: OutLabel
+    var persentageCoinLabel = OutLabel(text: "persentage")
 
     init(with title: String) {
         self.nameCoinLabel = OutLabel(text: title)
