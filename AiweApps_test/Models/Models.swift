@@ -37,3 +37,10 @@ extension Notification.Name {
     static let notificationFromParseButton = Notification.Name("notificationFromParseButton")
     static let notificationFromShowButton = Notification.Name("notificationFromShowButton")
 }
+
+enum ButtonNames: String {
+    case parse = "Parse"
+    case show = "Show"
+    case fetching = "Fetching"
+    case reading = "Reading"
+}
