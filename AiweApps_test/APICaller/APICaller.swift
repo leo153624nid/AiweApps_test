@@ -13,7 +13,7 @@ final class APICaller: APICallerProtocol {
     
     private init() {}
     
-    public func fetchData(completion: @escaping (Result<Data, Error>) -> Void) {
+    public func fetchData(completion: @escaping (Result<DataClass, Error>) -> Void) {
         guard let url = constants.dataURL else { fatalError("bad url") }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
