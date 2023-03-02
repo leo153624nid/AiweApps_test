@@ -16,6 +16,11 @@ class OutLabel: UILabel {
         self.backgroundColor = .cyan
         self.text = text
         self.textAlignment = .center
+        self.numberOfLines = 0
+        self.adjustsFontSizeToFitWidth = true
+        self.sizeToFit()
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 12
     }
     
     required init?(coder: NSCoder) {
