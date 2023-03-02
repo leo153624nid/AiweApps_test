@@ -19,6 +19,7 @@
 		FAC6955E29AFA2B70065FE03 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6955D29AFA2B70065FE03 /* Protocols.swift */; };
 		FAC6956129AFA2F30065FE03 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956029AFA2F30065FE03 /* Constants.swift */; };
 		FAC6956829AFAA880065FE03 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956729AFAA880065FE03 /* PrimaryButton.swift */; };
+		FAC6956D29B073EF0065FE03 /* OutLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6956C29B073EF0065FE03 /* OutLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FAC6955D29AFA2B70065FE03 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		FAC6956029AFA2F30065FE03 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAC6956729AFAA880065FE03 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		FAC6956C29B073EF0065FE03 /* OutLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC6956729AFAA880065FE03 /* PrimaryButton.swift */,
+				FAC6956C29B073EF0065FE03 /* OutLabel.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				FAC6953D29AF942A0065FE03 /* ViewController.swift in Sources */,
 				FAC6953929AF942A0065FE03 /* AppDelegate.swift in Sources */,
 				FAC6955E29AFA2B70065FE03 /* Protocols.swift in Sources */,
+				FAC6956D29B073EF0065FE03 /* OutLabel.swift in Sources */,
 				FAC6953B29AF942A0065FE03 /* SceneDelegate.swift in Sources */,
 				FAC6955A29AFA2620065FE03 /* Models.swift in Sources */,
 				FAC6955129AF96010065FE03 /* APICaller.swift in Sources */,
