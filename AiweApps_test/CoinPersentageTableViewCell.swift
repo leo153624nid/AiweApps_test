@@ -12,7 +12,7 @@ class CoinPersentageTableViewCell: UITableViewCell {
 
     private let coinName: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 25, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .medium)
         return label
     }()
     private let coinPersentage: UILabel = {
@@ -26,9 +26,7 @@ class CoinPersentageTableViewCell: UITableViewCell {
         self.frame = .zero
         self.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(coinName)
-        contentView.addSubview(coinPersentage)
-        
-//        setupView()
+        contentView.addSubview(coinPersentage)  
     }
     
     required init?(coder: NSCoder) {
@@ -37,7 +35,7 @@ class CoinPersentageTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        coinName.frame = CGRect(x: 10, y: 0, width: contentView.frame.size.width - 100, height: contentView.frame.size.height)
+        setupView()
     }
     
     override func prepareForReuse() {
@@ -51,17 +49,9 @@ class CoinPersentageTableViewCell: UITableViewCell {
     
     func setupView() {
         // setup coinName
-        coinName.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        coinName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
-        coinName.widthAnchor.constraint(equalToConstant: 100).isActive = true
-//        coinName.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        coinName.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        coinName.frame = CGRect(x: 10, y: 0, width: contentView.frame.size.width - 100, height: contentView.frame.size.height)
         
         // setup coinPersentage
-        coinPersentage.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        coinPersentage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
-        coinPersentage.widthAnchor.constraint(equalToConstant: 100).isActive = true
-//        coinPersentage.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        coinPersentage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        coinPersentage.frame = CGRect(x: 110, y: 0, width: contentView.frame.size.width - 100, height: contentView.frame.size.height)
     }
 }
