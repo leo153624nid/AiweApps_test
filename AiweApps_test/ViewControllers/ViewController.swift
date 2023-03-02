@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     private let showButton = PrimaryButton(title: ButtonNames.show.rawValue)
     
     private var dataArray = [MarketCapPercentage]()
-//    private var dataArray = [CoinPersentageTableViewCellViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +52,7 @@ class ViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    // Настройка View
     private func setupView() {
         // setup parseButton
         parseButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
@@ -79,6 +79,7 @@ class ViewController: UIViewController {
         showButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
+    // Получение и запись данных
     private func getAndWriteData() {
         apiCaller.fetchData { [weak self] result in
             switch result {
@@ -86,10 +87,15 @@ class ViewController: UIViewController {
                     self?.dataArray.removeAll()
 
                     DispatchQueue.main.async {
+                        // Очистка БД
                         self?.clearStore()
+                        
+                        // Сохранение в БД
                         for (key, value) in data.marketCapPercentage {
                             self?.saveItem(key: key, value: value)
                         }
+                        
+                        // работа с UI
                         sleep(1)
                         self?.parseButton.setTitle(ButtonNames.parse.rawValue, for: .normal)
                         self?.parseButton.buttonIsOn = false
@@ -99,6 +105,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Сохранение в БД
     private func saveItem(key: String, value: Double) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -117,6 +124,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Чтение из БД и обновление таблицы
     private func readData() {
         dataArray.removeAll()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -137,22 +145,22 @@ class ViewController: UIViewController {
         }
     }
     
+    // Очистка БД
     private func clearStore() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<MarketCapPercentage> = MarketCapPercentage.fetchRequest()
-//        let executeReq: NSPersistentStoreRequest<MarketCapPercentage> = MarketCapPercentage.
         
         do {
             try context.execute(NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>))
-//            try context.executeRequest(NSBatchDeleteRequest(fetchRequest: fetchRequest))
 //            try context.save()
         } catch let error as NSError {
             print(error.localizedDescription)
         }
     }
     
+    // Экшн по нажатию кнопки Parse
     @objc func parseAction(notification: Notification) {
         if notification.name == Notification.Name.notificationFromParseButton {
             self.parseButton.setTitle(ButtonNames.fetching.rawValue, for: .normal)
@@ -160,11 +168,17 @@ class ViewController: UIViewController {
         }
     }
     
+    // Экшн по нажатию кнопки Show
     @objc func showAction(notification: Notification) {
         if notification.name == Notification.Name.notificationFromShowButton {
             self.showButton.setTitle(ButtonNames.reading.rawValue, for: .normal)
             readData()
         }
+    }
+    
+    // Бонус - подсчет обьема AltCoins
+    private func showAltCoinsMarketCap() {
+        
     }
 }
 

@@ -35,16 +35,6 @@ struct DataClass: Codable {
     }
 }
 
-//struct CoinPersentageTableViewCellViewModel { // todo
-//    var coinName: String
-//    var coinPersentage: Double
-//    
-//    init(name: String, persentage: Double) {
-//        self.coinName = name
-//        self.coinPersentage = persentage
-//    }
-//}
-
 extension Notification.Name {
     static let notificationFromParseButton = Notification.Name("notificationFromParseButton")
     static let notificationFromShowButton = Notification.Name("notificationFromShowButton")

@@ -147,8 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				FAC6956F29B08E0D0065FE03 /* CoinPersentageTableView.swift */,
-				FAC6957429B096190065FE03 /* InfoView.swift */,
 				FAC6957B29B09EDF0065FE03 /* CoinPersentageTableViewCell.swift */,
+				FAC6957429B096190065FE03 /* InfoView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
