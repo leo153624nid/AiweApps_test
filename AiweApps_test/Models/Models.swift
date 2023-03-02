@@ -35,7 +35,7 @@ struct DataClass: Codable {
     }
 }
 
-struct CoinPersentageTableViewCellViewModel {
+struct CoinPersentageTableViewCellViewModel { // todo
     var coinName: String
     var coinPersentage: Double
     
