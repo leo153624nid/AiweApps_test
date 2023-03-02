@@ -31,6 +31,15 @@ struct Data: Codable {
 
 struct CoinPersentage: Codable {
     let btc: Double
+    let eth: Double
+    let usdt: Double
+    let bnb: Double
+    let usdc: Double
+    let xrp: Double
+    let ada: Double
+    let okb: Double
+    let doge: Double
+    let matic: Double
 }
 
 extension Notification.Name {
