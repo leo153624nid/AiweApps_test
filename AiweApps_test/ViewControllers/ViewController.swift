@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     private let nameCoinLabel = OutLabel(text: "coin:")
     private let persentageCoinLabel = OutLabel(text: "persentage")
     
-    private let parseButton = PrimaryButton(title: "Parse")
-    private let showButton = PrimaryButton(title: "Show")
+    private let parseButton = PrimaryButton(title: ButtonNames.parse.rawValue)
+    private let showButton = PrimaryButton(title: ButtonNames.show.rawValue)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,6 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(parseAction), name: .notificationFromParseButton, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showAction), name: .notificationFromShowButton, object: nil)
-        
-        getData() // todo
     }
     
     init(with apiCaller: APICallerProtocol) {
@@ -39,15 +37,6 @@ class ViewController: UIViewController {
     required init?(coder: NSCoder) {
         self.apiCaller = APICaller.shared
         super.init(coder: coder)
-    }
-    
-    private func getData() {
-        apiCaller.fetchData { result in
-            switch result {
-                case .success(let data): print(data.marketCapPercentage.btc) // todo
-                case .failure(let error): print(error.localizedDescription)
-            }
-        }
     }
     
     private func setupView() {
@@ -76,21 +65,32 @@ class ViewController: UIViewController {
         showButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
+    private func getAndWriteData() {
+        apiCaller.fetchData { result in
+            switch result {
+                case .success(let data):
+                    print(data.marketCapPercentage.btc) // todo
+                    DispatchQueue.main.async {
+                        sleep(1)
+                        self.parseButton.setTitle(ButtonNames.parse.rawValue, for: .normal)
+                        self.parseButton.buttonIsOn = false
+                    }
+                    
+                case .failure(let error): print(error.localizedDescription)
+            }
+        }
+    }
+    
     @objc func parseAction(notification: Notification) {
         if notification.name == Notification.Name.notificationFromParseButton {
-//            let alertController = UIAlertController(title: "Поздравляем!", message: "Ваша заявка успешно отправлена!", preferredStyle: .alert)
-//            let action = UIAlertAction(title: "Закрыть", style: .default, handler: { action in
-//                print("action")
-//            })
-//
-//            alertController.addAction(action)
-//            self.present(alertController, animated: true, completion: nil)
+            self.parseButton.setTitle(ButtonNames.fetching.rawValue, for: .normal)
+            getAndWriteData()
         }
     }
     
     @objc func showAction(notification: Notification) {
         if notification.name == Notification.Name.notificationFromShowButton {
-
+            self.showButton.setTitle(ButtonNames.reading.rawValue, for: .normal)
         }
     }
     
